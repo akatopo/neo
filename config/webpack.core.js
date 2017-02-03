@@ -18,13 +18,10 @@ const TESTS = path.join(CWD, 'tests');
 const USER_TEMPLATE = path.join(SRC, 'template.handlebars');
 const ENV = Object
   .keys(process.env)
-  .filter(key => key.toUpperCase().startsWith('NEO_'))
   .reduce((env, key) => {
     env[`process.env.${key}`] = JSON.stringify(process.env[key]);
     return env;
-  }, {
-    'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
-  });
+  }, {});
 
 const loader = name => `${name}?${qs.stringify(require(`.\/${name}`), {
   encode: false,
