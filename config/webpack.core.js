@@ -15,7 +15,7 @@ const PACKAGE = require(path.join(CWD, 'package.json'));
 const SRC_FILE = path.join(CWD, PACKAGE.config.entry);
 const SRC = path.dirname(SRC_FILE);
 const TESTS = path.join(CWD, 'tests');
-const USER_TEMPLATE = path.join(SRC, 'template.ejs');
+const USER_TEMPLATE = path.join(SRC, 'template.handlebars');
 const ENV = Object
   .keys(process.env)
   .filter(key => key.toUpperCase().startsWith('NEO_'))
